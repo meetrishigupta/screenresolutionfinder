@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./display.module.css";
+import styles from "./display.module.css";
 function Display() {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
@@ -22,16 +22,26 @@ function Display() {
     };
     window.addEventListener("resize", handleheight);
     return () => {
+      if(window.innerWidth === 1280){
+        alert("Your screen is ready for YP Client")
+      }
       window.removeEventListener("resize", handleheight);
     };
+   
   });
+
+
 
   return (
     <>
-      <div>
-        <h1>Your Screen Resolution</h1>
-        <h3>Width: {width}</h3>
-        <h3>Height: {height}</h3>
+            <h1>Your Screen Resolution is</h1>
+      <div className={styles.wrapper}>
+<div className={styles.wrapper2}>
+   <p>Width: {width}</p>
+      <p>Height: {height}</p>
+</div>
+     
+
       </div>
     </>
   );
